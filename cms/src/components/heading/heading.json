@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_heading_headings",
+  "info": {
+    "displayName": "heading"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    }
+  }
+}

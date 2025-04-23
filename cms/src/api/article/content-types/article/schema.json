@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "article"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "mainImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "publishedBy": {
+      "type": "string"
+    },
+    "publishedDate": {
+      "type": "date"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "paragraph.paragraph",
+        "heading.heading",
+        "image.image",
+        "video.video"
+      ]
+    }
+  }
+}
