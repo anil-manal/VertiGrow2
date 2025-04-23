@@ -54,6 +54,31 @@ export default function RootLayout() {
             headerBackTitle: 'Back'
           }} 
         />
+
+        <Stack.Screen 
+          name="companies/[slug]" 
+          options={{ 
+            title: 'Company Details',
+            headerBackTitle: 'Companies'
+        }} 
+        />
+        <Stack.Screen 
+          name="crops/[slug]" 
+          options={{ 
+            title: 'Crop Details',
+            headerBackTitle: 'Companies'
+        }} 
+        />
+
+      {/* Crop Screens */}
+      <Stack.Screen 
+        name="CropListScreen" 
+        options={{ 
+          title: 'Crops',
+          headerBackTitle: 'Back'
+        }} 
+      />
+      
       </Stack>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
     </ThemeProvider>

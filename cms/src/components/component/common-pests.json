@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_component_common_pests",
+  "info": {
+    "displayName": "commonPests",
+    "icon": ""
+  },
+  "options": {},
+  "attributes": {
+    "pestName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "solution": {
+      "type": "blocks"
+    }
+  }
+}

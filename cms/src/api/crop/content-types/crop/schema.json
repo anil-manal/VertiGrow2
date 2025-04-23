@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crops",
+  "info": {
+    "singularName": "crop",
+    "pluralName": "crops",
+    "displayName": "Crop",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "scientificName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "mainImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "growthTime": {
+      "type": "integer"
+    },
+    "difficultyLevel": {
+      "type": "enumeration",
+      "enum": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ]
+    },
+    "lightRequirements": {
+      "type": "text"
+    },
+    "waterRequirements": {
+      "type": "text"
+    },
+    "nutrientRequirements": {
+      "type": "text"
+    },
+    "harvestTips": {
+      "type": "blocks"
+    },
+    "commonPests": {
+      "displayName": "commonPests",
+      "type": "component",
+      "repeatable": true,
+      "component": "component.common-pests"
+    },
+    "yieldPerSquareFoot": {
+      "type": "decimal"
+    },
+    "optimalTemperature": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.optimal-temperature"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "video.video",
+        "paragraph.paragraph",
+        "image.image",
+        "heading.heading"
+      ]
+    }
+  }
+}

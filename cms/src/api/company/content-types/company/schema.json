@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "companies",
+  "info": {
+    "singularName": "company",
+    "pluralName": "companies",
+    "displayName": "Company",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "featured_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "short_description": {
+      "type": "blocks"
+    },
+    "website_url": {
+      "type": "string"
+    },
+    "established_year": {
+      "type": "integer"
+    },
+    "headquarters": {
+      "type": "string"
+    },
+    "specialization": {
+      "type": "string"
+    },
+    "number_of_facilities": {
+      "type": "integer"
+    },
+    "key_technologies": {
+      "type": "json"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "video.video",
+        "text.heading",
+        "paragraph.paragraph",
+        "image.image",
+        "heading.heading"
+      ]
+    }
+  }
+}

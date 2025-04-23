@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_component_optimal_temperatures",
+  "info": {
+    "displayName": "optimalTemperature",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "min": {
+      "type": "integer"
+    },
+    "max": {
+      "type": "integer"
+    }
+  }
+}

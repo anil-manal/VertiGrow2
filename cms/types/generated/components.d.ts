@@ -1,5 +1,38 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ComponentCommonPests extends Struct.ComponentSchema {
+  collectionName: 'components_component_common_pests';
+  info: {
+    displayName: 'commonPests';
+    icon: '';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    pestName: Schema.Attribute.String;
+    solution: Schema.Attribute.Blocks;
+  };
+}
+
+export interface ComponentOptimalTemperature extends Struct.ComponentSchema {
+  collectionName: 'components_component_optimal_temperatures';
+  info: {
+    description: '';
+    displayName: 'optimalTemperature';
+  };
+  attributes: {
+    max: Schema.Attribute.Integer;
+    min: Schema.Attribute.Integer;
+  };
+}
+
+export interface ContentContent extends Struct.ComponentSchema {
+  collectionName: 'components_content_contents';
+  info: {
+    displayName: 'content';
+  };
+  attributes: {};
+}
+
 export interface HeadingHeading extends Struct.ComponentSchema {
   collectionName: 'components_heading_headings';
   info: {
@@ -117,6 +150,9 @@ export interface VideoVideo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'component.common-pests': ComponentCommonPests;
+      'component.optimal-temperature': ComponentOptimalTemperature;
+      'content.content': ContentContent;
       'heading.heading': HeadingHeading;
       'image.image': ImageImage;
       'paragraph.paragraph': ParagraphParagraph;

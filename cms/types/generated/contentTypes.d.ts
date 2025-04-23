@@ -433,6 +433,101 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCompanyCompany extends Struct.CollectionTypeSchema {
+  collectionName: 'companies';
+  info: {
+    description: '';
+    displayName: 'Company';
+    pluralName: 'companies';
+    singularName: 'company';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'video.video',
+        'text.heading',
+        'paragraph.paragraph',
+        'image.image',
+        'heading.heading',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    established_year: Schema.Attribute.Integer;
+    featured_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    headquarters: Schema.Attribute.String;
+    key_technologies: Schema.Attribute.JSON;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::company.company'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    number_of_facilities: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    short_description: Schema.Attribute.Blocks;
+    slug: Schema.Attribute.UID<'title'>;
+    specialization: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    website_url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiCropCrop extends Struct.CollectionTypeSchema {
+  collectionName: 'crops';
+  info: {
+    description: '';
+    displayName: 'Crop';
+    pluralName: 'crops';
+    singularName: 'crop';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    commonPests: Schema.Attribute.Component<'component.common-pests', true>;
+    content: Schema.Attribute.DynamicZone<
+      ['video.video', 'paragraph.paragraph', 'image.image', 'heading.heading']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    difficultyLevel: Schema.Attribute.Enumeration<['Easy', 'Medium', 'Hard']>;
+    growthTime: Schema.Attribute.Integer;
+    harvestTips: Schema.Attribute.Blocks;
+    lightRequirements: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::crop.crop'> &
+      Schema.Attribute.Private;
+    mainImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    nutrientRequirements: Schema.Attribute.Text;
+    optimalTemperature: Schema.Attribute.Component<
+      'component.optimal-temperature',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    scientificName: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    waterRequirements: Schema.Attribute.Text;
+    yieldPerSquareFoot: Schema.Attribute.Decimal;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -976,6 +1071,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
+      'api::company.company': ApiCompanyCompany;
+      'api::crop.crop': ApiCropCrop;
       'api::global.global': ApiGlobalGlobal;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
